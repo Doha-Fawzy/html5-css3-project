@@ -16,46 +16,138 @@
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="cart.html">Cart</a>
             <a href="login.html">Login</a>
             <a href="signup.html">Sign Up</a>
         </div>
     </nav>
 
   <main>
+        <h3 class="fltr-h">Filter By</h3>
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+            <button class="filter-btn" onclick="filterProducts('electronics')">Electronics</button>
+            <button class="filter-btn" onclick="filterProducts('fashion')">Fashion</button>
+            <button class="filter-btn" onclick="filterProducts('home')">House & Furniture</button>
+            <button class="filter-btn" onclick="filterProducts('children')">Children</button>
+        </div>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card" data-category="fashion">
+                <img src="/assets/cloth.webp" alt="Smartphone">
+                <h3>T-shirt</h3>
+                <p>$99</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="fashion">
+                <img src="/assets/f2.jpg" alt="Smartphone">
+                <h3>Woman dresses</h3>
+                <p>$120</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="home">
+                <img src="/assets/s3.jpg" alt="Smartphone">
+                <h3>Spoones</h3>
+                <p>$15</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="home">
+                <img src="/assets/i8.jpg" alt="Smartphone">
+                <h3>Fridge LG</h3>
+                <p>$999</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="children">
+                <img src="/assets/i7.jpg" alt="Smartphone">
+                <h3>5-years girly dress</h3>
+                <p>$100</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="children">
+                <img src="/assets/i6.webp" alt="Smartphone">
+                <h3>New born</h3>
+                <p>$85</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="children">
+                <img src="/assets/db.jpg" alt="Smartphone">
+                <h3>Stuffed teddy bear</h3>
+                <p>$50</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="home">
+                <img src="/assets/s4.jpg" alt="Smartphone">
+                <h3>Thermal Mugs</h3>
+                <p>$20</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <div class="product-card" data-category="home">
+                <img src="/assets/i3.png" alt="blender">
+                <h3>E-Blender</h3>
+                <p>$450</p>
+                <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
+            </div>
+            <!--  -->
+            <div class="product-card" data-category="electronics">
                 <img src="/assets/i9.webp" alt="Smartphone">
                 <h3>Smartphone X</h3>
                 <p>$999</p>
                 <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-category="electronics">
                 <img src="assets/laptop.jpg" alt="Laptop">
                 <h3>Laptop Pro</h3>
                 <p>$1299</p>
                 <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
             </div>
             
-            <div class="product-card">
+            <div class="product-card" data-category="electronics">
                 <img src="/assets/head.webp" alt="Headphones">
                 <h3>Wireless Headphones</h3>
                 <p>$199</p>
                 <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
             </div>
             
-             <div class="product-card">
+             <div class="product-card" data-category="electronics">
                 <img src="/assets/s2.webp" alt="Watch">
                 <h3>Smart Watch</h3>
                 <p>$299</p>
                 <button>Add to Cart</button>
+                <button style="background:#e74c3c; margin-top:5px">Add to Wishlist</button>
             </div>
         </div>
     </main>
 
     <footer>
-        &copy; 2025 My Shop Website. With love by Doha.
+        &copy; 2025 Wein Website. With love by Doha.
     </footer>
-
+    
+    <script>
+        function filterProducts(category) {
+            let cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach(card => {
+                // If category is 'all' OR the card matches the category -> Show it
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none'; // Hide it
+                }
+            });
+        }
+    </script>
 </body>
 </html>
